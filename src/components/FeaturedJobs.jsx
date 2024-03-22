@@ -5,11 +5,13 @@ const FeaturedJobs = () => {
 
     const [jobs, setJobs] = useState([]);
 
-    useEffect(()=>{
+    const [dataLength, setDataLength] = useState(4);
+
+    useEffect(() => {
         fetch('jobs.json')
-        .then(res => res.json())
-        .then(data => setJobs(data))
-    },[]);
+            .then(res => res.json())
+            .then(data => setJobs(data))
+    }, []);
 
     return (
         <section className="mb-28">
@@ -19,10 +21,15 @@ const FeaturedJobs = () => {
             </div>
             <div className="grid grid-cols-2 gap-6">
                 {
-                    jobs.map((job) => <FeaturedJobCard
-                    key={job.id} card={job}></FeaturedJobCard>)
+                    jobs.slice(0, dataLength).map((job) => <FeaturedJobCard
+                        key={job.id} card={job}></FeaturedJobCard>)
                 }
             </div>
+            {
+                dataLength === 4 && <div className="text-center my-12">
+                    <button className="btn btn-primary" onClick={() => setDataLength(6)}>Show All Jobs</button>
+                </div>
+            }
         </section>
     );
 };

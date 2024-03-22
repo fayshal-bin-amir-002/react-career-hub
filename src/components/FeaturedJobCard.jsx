@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import { IoLocationOutline } from "react-icons/io5";
 import { AiOutlineDollarCircle } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 
 const FeaturedJobCard = ({ card }) => {
-    console.log(card);
-    const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = card;
+
+    const { id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = card;
+
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
-            <figure><img src={logo} /></figure>
+            <figure className='py-5'><img src={logo} /></figure>
             <div className="card-body">
                 <h2 className="card-title text-2xl">{job_title}</h2>
                 <p className='text-xl font-semibold opacity-70'>{company_name}</p>
@@ -21,7 +23,7 @@ const FeaturedJobCard = ({ card }) => {
                     <p className='flex items-center gap-1'><span><AiOutlineDollarCircle /></span>{salary}</p>
                 </div>
                 <div className="card-actions justify-start">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/job/${id}`}><button className="btn btn-primary">View Details</button></Link>
                 </div>
             </div>
         </div>

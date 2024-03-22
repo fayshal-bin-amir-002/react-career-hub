@@ -4,7 +4,7 @@ import FeaturedJobs from "./FeaturedJobs";
 
 const Home = () => {
     return (
-        <div className="container mx-auto px-28">
+        <div className="container mx-auto">
             <Banner></Banner>
             <CategoryList></CategoryList>
             <FeaturedJobs></FeaturedJobs>

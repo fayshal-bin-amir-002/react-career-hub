@@ -3,7 +3,7 @@ import BtnPrimary from "./BtnPrimary";
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 container mx-auto px-28">
+        <div className="navbar bg-base-100 container mx-auto px-28 py-12">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -20,10 +20,10 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex justify-between items-center font-medium gap-12 text-lg">
-                    <li><NavLink to='/'>Home</NavLink></li>
-                    <li><NavLink to='/statistic'>Statistic</NavLink></li>
-                    <li><NavLink to='applied'>Applied Jobs</NavLink></li>
-                    <li><NavLink to='blog'>Blog</NavLink></li>
+                    <li><NavLink to='/' className={({isActive})=>isActive?'text-primary':''}>Home</NavLink></li>
+                    <li><NavLink to='/statistic' className={({isActive})=>isActive?'text-primary':''}>Statistic</NavLink></li>
+                    <li><NavLink to='applied' className={({isActive})=>isActive?'text-primary':''}>Applied Jobs</NavLink></li>
+                    <li><NavLink to='blog' className={({isActive})=>isActive?'text-primary':''}>Blog</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">
